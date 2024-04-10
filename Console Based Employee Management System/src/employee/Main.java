@@ -77,7 +77,7 @@ public class Main {
           dao.deleteEmployee(newId);
           break;
         case 4:
-          System.out.println("Enter the id to search");
+          System.out.println("Enter the id to search ");
           int searchId = sc.nextInt();
           dao.searchEmployee(searchId);
           break;
