@@ -58,7 +58,9 @@ public class Main {
           
           SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
           java.util.Date date1 = sdf.parse(dob);
+          
           java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
+          
 
           System.out.println("Enter department");
           department = sc.next();
