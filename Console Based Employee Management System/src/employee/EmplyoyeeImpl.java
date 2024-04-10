@@ -1,9 +1,12 @@
 package employee;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+
 import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 
 
 public class EmplyoyeeImpl implements EmployeeInterface{
@@ -18,7 +21,7 @@ public class EmplyoyeeImpl implements EmployeeInterface{
 						 pstm.setDate(3, emp.getDOB());
 						 pstm.setInt(4,emp.getSalary());
 						 pstm.setString(5, emp.getDept());
-	          //  pstm.setInt(6,emp.getId());
+	          
 	           int cnt= pstm.executeUpdate();
 	          if(cnt!=0)
 	              System.out.println("Employee Inserted Successfully !!!");
@@ -128,13 +131,38 @@ public class EmplyoyeeImpl implements EmployeeInterface{
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Employee Found! \n");
 				System.out.println("Enter the details! \n");
+
 				System.out.println("Enter the name:");
-				String queryValue= sc.next();
+				String nameValue= sc.next();
+
+				System.out.println("Enter age");
+        int age = sc.nextInt();
 				
-				String updateQuery = "update employee set fullName=? where id=?";
+				System.out.println("Enter the DateOfBirth:");
+				String dateValue = sc.next();
+
+
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        java.util.Date date1 = sdf.parse(dateValue);
+        java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
+
+				System.out.println("Enter the salary");
+				int salary = sc.nextInt();
+
+				System.out.println("Enter the department");
+				String dept = sc.next();
+
+
+				
+				String updateQuery = " UPDATE emp SET FullName=?, Age=?, DateOfBirth=?, salary=?, Department=? WHERE id = ?";
 				PreparedStatement stmt1 = con.prepareStatement(updateQuery);
-				stmt1.setString(1, queryValue);
-				stmt1.setInt(2, id);
+				stmt1.setString(1, nameValue);
+				stmt1.setInt(2, age);
+				stmt1.setDate(3, sqlDate);
+				stmt1.setInt(4, salary);
+				stmt1.setString(5, dept);
+				stmt1.setInt(6, id);
 				stmt1.executeUpdate();
 				System.out.println("Employee Updated Successfully");
 			}
@@ -159,12 +187,13 @@ public void filterEmployeeByDept(String dept){
 
 		else {
 			while(result.next()){
-				System.out.println("Full Name:"+result.getString(1));
-				System.out.println("Age:"+result.getInt(2));
-				System.out.println("Date of Birth:"+ result.getDate(3));
-				System.out.println("Salary:"+result.getInt(4));
-				System.out.println("Department:"+result.getString(5));
-				System.out.println("Employee ID:"+result.getInt(6));
+				System.out.println("Employee ID:"+result.getInt(1));
+				System.out.println("Full Name:"+result.getString(2));
+				System.out.println("Age:"+result.getInt(3));
+				System.out.println("Date of Birth:"+ result.getDate(4));
+				System.out.println("Salary:"+result.getInt(5));
+				System.out.println("Department:"+result.getString(6));
+				
 				System.out.println("-----------------");
 					
 				}
