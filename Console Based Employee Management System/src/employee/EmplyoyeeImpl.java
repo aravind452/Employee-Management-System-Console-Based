@@ -210,18 +210,24 @@ public void filterEmployeeByDept(String dept){
 
 public void calculateAvgSalaryByDept(String dept){
 	con = DBConnection.createDBConnection();
-	String query = "select AVG(salary) FROM emp WHERE department = ?";
+	String query = "select AVG(salary) AS avg_salary FROM emp WHERE department = ?";
 	try {
 		PreparedStatement stmt = con.prepareStatement(query);
 		stmt.setString(1, dept);
 		ResultSet result = stmt.executeQuery();
+		
 		if(result.next()){
-			int avg_salary = result.getInt(1);
-			System.out.println("Average Salary of "+dept+" is "+avg_salary);
+			int avg_salary = result.getInt("avg_salary");
+			if (avg_salary == 0){
+				System.out.println("Department not found!");
+			}
+			else {
+				System.out.println("Average Salary of "+dept+" is "+avg_salary);
+			}
+			
+			
 		}
-		else{
-			System.out.println("No data found!");
-		}
+		
 
 	}
 	catch(Exception ex){
