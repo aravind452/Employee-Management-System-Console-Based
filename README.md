@@ -6,6 +6,8 @@ Add new employees <br>
 View existing employees <br> 
 Update employee information <br>
 Delete employees <br>
+Filter Employees <br>
+Search Employees <br>
 Calculate average salary <br>
 **Tools** <br>
 Java Development Kit (JDK) <br>
