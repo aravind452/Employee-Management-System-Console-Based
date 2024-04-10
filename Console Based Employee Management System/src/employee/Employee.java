@@ -13,7 +13,7 @@ public class Employee {
     }
 
     public Employee(String fullName, int age, Date dateOfBirth, int salary, String department) {
-
+        this.age = age;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.salary = salary;
