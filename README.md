@@ -1,7 +1,7 @@
-**Employee Management System**
+**Employee Management System** <br>
 This is a simple Employee Management System implemented using Java and MySQL.
 
-**Features** \n
+**Features** <br>
 Add new employees
 View existing employees
 Update employee information
