@@ -10,7 +10,7 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     EmployeeInterface dao = new EmplyoyeeImpl();
-    //int id;
+    
     String fullName;
     int salary;
     int age;
