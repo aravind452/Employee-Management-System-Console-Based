@@ -2,10 +2,11 @@
 This is a simple Employee Management System implemented using Java and MySQL.
 
 **Features** <br>
-Add new employees
-View existing employees
-Update employee information
-Delete employees
-**Tools**
-Java Development Kit (JDK)
-MySQL Database
+Add new employees <br>
+View existing employees <br> 
+Update employee information <br>
+Delete employees <br>
+Calculate average salary <br>
+**Tools** <br>
+Java Development Kit (JDK) <br>
+MySQL Database <br>
